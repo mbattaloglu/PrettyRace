@@ -310,6 +310,7 @@ GameObject:
   - component: {fileID: 2293152588401836237}
   - component: {fileID: 2211434486398275224}
   - component: {fileID: 7032255682560395402}
+  - component: {fileID: 3806289372551797678}
   - component: {fileID: 3535666156630498707}
   m_Layer: 7
   m_Name: Speedy
@@ -400,6 +401,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3806289372551797678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8554560613183409047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2c1b61ab36abce419f2efe719e4bbb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlType: 0
 --- !u!114 &3535666156630498707
 MonoBehaviour:
   m_ObjectHideFlags: 0

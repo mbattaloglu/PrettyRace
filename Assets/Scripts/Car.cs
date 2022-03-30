@@ -28,10 +28,6 @@ public class Car : MonoBehaviour
 
     private void Update()
     {
-
-        Steer = GameManager.GetInstance().inputManager.SteerInput;
-        Throttle = GameManager.GetInstance().inputManager.ThrottleInput;
-
         foreach (var wheel in wheels)
         {
             wheel.SteerAngle = Steer * steeringAngle;
