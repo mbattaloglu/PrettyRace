@@ -8,52 +8,37 @@ public class Car : MonoBehaviour
 
     public Transform centerOfMass;
 
-    public WheelCollider frontLeftCollider;
-    public WheelCollider rearLeftCollider;
-    public WheelCollider frontRightCollider;
-    public WheelCollider rearRightCollider;
+    private Wheel[] wheels;
 
-    public Transform frontLeftTransform;
-    public Transform rearLeftTransform;
-    public Transform frontRightTransform;
-    public Transform rearRightTransform;
+    private float motorTorque;
+    private float steeringAngle;
+
+    public float Steer { get; set; }
+    public float Throttle { get; set; }
     
 
     private void Awake()
     {
+        motorTorque = carProperty.motorTorque;
+        steeringAngle = carProperty.steeringAngle;
+        wheels = GetComponentsInChildren<Wheel>();
         GetComponent<Rigidbody>().mass = carProperty.massOfCar;
         GetComponent<Rigidbody>().centerOfMass = centerOfMass.localPosition;
     }
 
-
-    private void FixedUpdate()
-    {
-        rearLeftCollider.motorTorque = Input.GetAxis("Vertical") * carProperty.motorTorque;
-        rearRightCollider.motorTorque = Input.GetAxis("Vertical") * carProperty.motorTorque;
-
-        frontLeftCollider.steerAngle = Input.GetAxis("Horizontal") * carProperty.steeringAngle;
-        frontRightCollider.steerAngle = Input.GetAxis("Horizontal") * carProperty.steeringAngle;
-    }
-
     private void Update()
     {
-        var pos = Vector3.zero;
-        var rot = Quaternion.identity;
 
-        frontLeftCollider.GetWorldPose(out pos, out rot);
-        frontLeftTransform.position = pos;
-        frontLeftTransform.rotation = rot;
+        Steer = GameManager.GetInstance().inputManager.SteerInput;
+        Throttle = GameManager.GetInstance().inputManager.ThrottleInput;
 
-        frontRightCollider.GetWorldPose(out pos, out rot);
-        frontRightTransform.position = pos;
-        frontRightTransform.rotation = rot * Quaternion.Euler(0, 180, 0);
-
-        rearLeftCollider.GetWorldPose(out pos, out rot);
-        rearLeftTransform.position = pos;
-        rearLeftTransform.rotation = rot;
-
-        rearRightCollider.GetWorldPose(out pos, out rot);
-        rearRightTransform.position = pos;
-        rearRightTransform.rotation = rot * Quaternion.Euler(0, 180, 0);
+        foreach (var wheel in wheels)
+        {
+            wheel.SteerAngle = Steer * steeringAngle;
+            wheel.Torque = Throttle * motorTorque;
+        }
     }
+
+
+
 }
