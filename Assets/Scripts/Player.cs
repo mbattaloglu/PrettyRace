@@ -18,6 +18,12 @@ public class Player : MonoBehaviour
     private int checkpointCount;
     private int checkpointLayer;
     private Car car;
+    private float powerUp;
+
+    private void Start()
+    {
+        powerUp = GameManager.GetInstance().powerUp;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -58,7 +64,7 @@ public class Player : MonoBehaviour
         if (controlType == ControlType.HumanInput)
         {
             car.Steer = GameManager.GetInstance().inputManager.SteerInput;
-            car.Throttle = GameManager.GetInstance().inputManager.ThrottleInput;
+            car.Throttle = GameManager.GetInstance().inputManager.ThrottleInput * powerUp;
         }
     }
 

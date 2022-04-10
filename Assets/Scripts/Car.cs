@@ -10,12 +10,11 @@ public class Car : MonoBehaviour
 
     private Wheel[] wheels;
 
-    private float motorTorque;
-    private float steeringAngle;
+    public float motorTorque;
+    public float steeringAngle;
 
     public float Steer { get; set; }
     public float Throttle { get; set; }
-    
 
     private void Awake()
     {

@@ -355,6 +355,7 @@ GameObject:
   - component: {fileID: 8859148876395852550}
   - component: {fileID: 8617144727035245861}
   - component: {fileID: 6016277396407623485}
+  - component: {fileID: 895671102124167289}
   m_Layer: 0
   m_Name: Truck
   m_TagString: Untagged
@@ -458,6 +459,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carProperty: {fileID: 11400000, guid: 2cbe7d010bcdb6f47b5e44c5dbaf84b2, type: 2}
   centerOfMass: {fileID: 6022445010137061979}
+--- !u!114 &895671102124167289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7609976885421363463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2c1b61ab36abce419f2efe719e4bbb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlType: 0
 --- !u!1 &7711735021869724110
 GameObject:
   m_ObjectHideFlags: 0

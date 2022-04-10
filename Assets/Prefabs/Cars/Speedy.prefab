@@ -428,6 +428,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carProperty: {fileID: 11400000, guid: fafef2f84b8c9d243b2cb09f5aaa1219, type: 2}
   centerOfMass: {fileID: 5296662528317323925}
+  motorTorque: 0
+  steeringAngle: 0
 --- !u!1 &8650113429020751785
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,6 +442,7 @@ GameObject:
   - component: {fileID: 3371117588728894617}
   - component: {fileID: 4158391854941208104}
   - component: {fileID: 5506762458989335375}
+  - component: {fileID: 5440970519450606842}
   m_Layer: 6
   m_Name: Colliders
   m_TagString: Untagged
@@ -469,7 +472,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8650113429020751785}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.1765656, y: 0.87318444, z: 4.099934}
@@ -482,7 +485,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8650113429020751785}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.599284, y: 0.5631907, z: 1.8383914}
@@ -495,11 +498,23 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8650113429020751785}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 0.26728773, z: 0.809777}
   m_Center: {x: 0, y: 1.1624758, z: 1.20827}
+--- !u!114 &5440970519450606842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8650113429020751785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfede91187ec0154c8051e34ee5f1a07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8971037461910748825
 GameObject:
   m_ObjectHideFlags: 0
