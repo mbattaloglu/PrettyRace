@@ -1,11 +1,12 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, ISubejct
 {
-    public ControlType controlType = ControlType.HumanInput;
-
+    private GameManager gameManager;
+    public List<IObserver> observers;
+    public PlayerMode playerMode;
     public float BestLapTime { get; private set; } = Mathf.Infinity;
     public float LastLapTime { get; private set; } = 0;
     public float CurrentLapTime { get; private set; } = 0;
@@ -18,12 +19,7 @@ public class Player : MonoBehaviour
     private int checkpointCount;
     private int checkpointLayer;
     private Car car;
-    private float powerUp;
-
-    private void Start()
-    {
-        powerUp = GameManager.GetInstance().powerUp;
-    }
+    public int point;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -52,19 +48,25 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        //LINQ
+        observers = FindObjectsOfType<MonoBehaviour>().OfType<IObserver>().ToList();
         checkpointsParent = GameObject.Find("Checkpoints").transform;
         checkpointCount = checkpointsParent.childCount;
         checkpointLayer = LayerMask.NameToLayer("Checkpoint");
         car = GetComponent<Car>();
+        gameManager = GameManager.GetInstance();
     }
 
     private void Update()
     {
+        if (!gameManager.isGameStarted) return;
+        if (gameManager.isGamePaused) return;
+
         CurrentLapTime = lapTimerTimeStamp > 0 ? Time.time - lapTimerTimeStamp : 0;
-        if (controlType == ControlType.HumanInput)
+        if (playerMode == PlayerMode.Human)
         {
-            car.Steer = GameManager.GetInstance().inputManager.SteerInput;
-            car.Throttle = GameManager.GetInstance().inputManager.ThrottleInput * powerUp;
+            car.Steer = Input.GetAxis("Horizontal");
+            car.Throttle = Input.GetAxis("Vertical");
         }
     }
 
@@ -73,15 +75,33 @@ public class Player : MonoBehaviour
         CurrentLap++;
         lastCheckpointPassed = 1;
         lapTimerTimeStamp = Time.time;
+        if (CurrentLap == 3)
+        {
+            CurrentLap = 0;
+            NotifyObservers(NotificationType.LapsFinished, this);
+        }
     }
 
     private void EndLap()
     {
         LastLapTime = Time.time - lapTimerTimeStamp;
-        BestLapTime = Mathf.Min(LastLapTime, BestLapTime);
+        if (LastLapTime < BestLapTime)
+        {
+            BestLapTime = LastLapTime;
+            NotifyObservers(NotificationType.BestLap, this);
+        }
     }
 
-    
+    public void Register(IObserver observer)
+    {
+        observers.Add(observer);
+    }
 
-
+    public void NotifyObservers(NotificationType type, Player player)
+    {
+        foreach (IObserver observer in observers)
+        {
+            observer.OnValueChanged(type, player);
+        }
+    }
 }

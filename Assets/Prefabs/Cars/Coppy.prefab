@@ -184,7 +184,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6917249300433933340}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &608121635567740725
 GameObject:
@@ -220,64 +220,6 @@ Transform:
   m_Father: {fileID: 6917249300433933340}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &608121636080944488
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 608121636080944503}
-  - component: {fileID: 608121636080944501}
-  - component: {fileID: 608121636080944502}
-  m_Layer: 0
-  m_Name: Colliders
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &608121636080944503
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 608121636080944488}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6917249300433933340}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &608121636080944501
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 608121636080944488}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.15449, y: 0.82310224, z: 4.091053}
-  m_Center: {x: -0.009310484, y: 0.63776267, z: 0.0093102455}
---- !u!65 &608121636080944502
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 608121636080944488}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.6106997, y: 1.4096577, z: 1.8751775}
-  m_Center: {x: 0.0046551228, y: 1.6758722, z: -0.22344965}
 --- !u!1 &608121636189720260
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,7 +311,9 @@ GameObject:
   - component: {fileID: 3968825964538660277}
   - component: {fileID: 688038945209906591}
   - component: {fileID: 688038945209906576}
-  m_Layer: 0
+  - component: {fileID: 1976750296318801016}
+  - component: {fileID: 3389262480843677923}
+  m_Layer: 7
   m_Name: Coppy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,10 +329,9 @@ Transform:
   m_GameObject: {fileID: 688038945209906577}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 608121635567740724}
-  - {fileID: 608121636080944503}
   - {fileID: 608121635356331995}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -470,8 +413,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e07319c56cb52d64388561506b798de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carProperty: {fileID: 0}
+  carProperty: {fileID: 11400000, guid: 0d8b852e935fd1a4a8cd75138731e665, type: 2}
   centerOfMass: {fileID: 608121635356331995}
+  motorTorque: 0
+  steeringAngle: 0
+  speed: 0
+--- !u!65 &1976750296318801016
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688038945209906577}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.15449, y: 0.82310224, z: 4.091053}
+  m_Center: {x: -0.009310484, y: 0.63776267, z: 0.0093102455}
+--- !u!65 &3389262480843677923
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688038945209906577}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.6106997, y: 1.4096577, z: 1.8751775}
+  m_Center: {x: 0.0046551228, y: 1.6758722, z: -0.22344965}
 --- !u!1 &1386017959179190403
 GameObject:
   m_ObjectHideFlags: 0

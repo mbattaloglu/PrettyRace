@@ -125,7 +125,8 @@ GameObject:
   - component: {fileID: 1847175884198248131}
   - component: {fileID: 4212732549488543936}
   - component: {fileID: 2964677431180825749}
-  m_Layer: 0
+  - component: {fileID: 6255552729298382936}
+  m_Layer: 7
   m_Name: Van
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +142,7 @@ Transform:
   m_GameObject: {fileID: 1622240504039742351}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 7031783920834463907}
   - {fileID: 7171970782909841639}
@@ -228,6 +229,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carProperty: {fileID: 11400000, guid: 9aea8a442d3b9be4980137db965de052, type: 2}
   centerOfMass: {fileID: 8186042706703047932}
+  motorTorque: 0
+  steeringAngle: 0
+  speed: 0
+--- !u!65 &6255552729298382936
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622240504039742351}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.1798167, y: 1.9414448, z: 4.0801926}
+  m_Center: {x: 0.011877537, y: 1.1991994, z: -0.011877537}
 --- !u!1 &2803622842643315377
 GameObject:
   m_ObjectHideFlags: 0

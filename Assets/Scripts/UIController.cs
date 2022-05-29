@@ -6,7 +6,8 @@ using TMPro;
 public class UIController : MonoBehaviour
 {
     public GameObject UIRacePanel;
-
+    public GameObject UIMenuScreen;
+    public GameObject UITournamentScreen;
     public TextMeshProUGUI TMPCurrentLapText;
     public TextMeshProUGUI TMPCurrentLapTimeText;
     public TextMeshProUGUI TMPLastLapText;
@@ -18,6 +19,10 @@ public class UIController : MonoBehaviour
     private float currentLapTime;
     private float lastLapTime;
     private float bestLapTime;
+
+    private void Start()
+    {
+    }
 
     private void Update()
     {
@@ -47,4 +52,6 @@ public class UIController : MonoBehaviour
             TMPBestLapText.text = bestLapTime < 1000000 ?   $"BEST LAP: {(int)bestLapTime / 60}:{(bestLapTime) % 60:00.000}" : "BEST LAP:";
         }
     }
+
+    
 }

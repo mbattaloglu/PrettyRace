@@ -15,3 +15,4 @@ MonoBehaviour:
   motorTorque: 400
   steeringAngle: 20
   massOfCar: 600
+  maxSpeedToEnteringTurn: 30

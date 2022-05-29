@@ -8,6 +8,8 @@ public class Wheel : MonoBehaviour
     public bool invertSteer;
     public bool power;
 
+
+
     public float SteerAngle { get; set; }
     public float Torque { get; set; }
 
@@ -31,7 +33,7 @@ public class Wheel : MonoBehaviour
     {
         if (steer)
         {
-            wheelCollider.steerAngle = SteerAngle * (invertSteer ? -1 : 1);
+            wheelCollider.steerAngle = SteerAngle  * (invertSteer ? -1 : 1);
         }
 
         if (power)

@@ -8,10 +8,9 @@ public class GameManager : MonoBehaviour
     private static GameManager gameManager;
     public Transform player;
 
-    [HideInInspector]
-    public InputManager inputManager;
-
     public float powerUp;
+    public bool isGameStarted;
+    public bool isGamePaused;
 
     private GameManager()
     {
@@ -29,10 +28,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        inputManager = InputManager.GetInstance();
         powerUp = 1;
+        isGameStarted = false;
+        isGamePaused = false;
     }
-
-
-
 }

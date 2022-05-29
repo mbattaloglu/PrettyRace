@@ -14,7 +14,6 @@ public class CarTrigger : MonoBehaviour
     {
         if (other.gameObject.tag == "Collectible")
         {
-            Debug.Log("Hello");
             Destroy(other.gameObject);
             StartCoroutine(SpeedUp());
         }

@@ -1,49 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1576479405056211522
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2774123725902472604}
-  - component: {fileID: 4514922457860525488}
-  m_Layer: 0
-  m_Name: Colliders
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2774123725902472604
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1576479405056211522}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3017940099656992954}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &4514922457860525488
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1576479405056211522}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.9496255, y: 2.5153594, z: 7.4800534}
-  m_Center: {x: 0.01010251, y: 1.6466906, z: -1.6632464}
 --- !u!1 &2486747019541225594
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,7 +106,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3017940099656992954}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4827285784591896926
 GameObject:
@@ -356,7 +312,8 @@ GameObject:
   - component: {fileID: 8617144727035245861}
   - component: {fileID: 6016277396407623485}
   - component: {fileID: 895671102124167289}
-  m_Layer: 0
+  - component: {fileID: 161240843920634532}
+  m_Layer: 7
   m_Name: Truck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,10 +329,9 @@ Transform:
   m_GameObject: {fileID: 7609976885421363463}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1.5680071}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4106363393952982165}
-  - {fileID: 2774123725902472604}
   - {fileID: 6022445010137061979}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -459,6 +415,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carProperty: {fileID: 11400000, guid: 2cbe7d010bcdb6f47b5e44c5dbaf84b2, type: 2}
   centerOfMass: {fileID: 6022445010137061979}
+  motorTorque: 0
+  steeringAngle: 0
+  speed: 0
 --- !u!114 &895671102124167289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -471,7 +430,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c1b61ab36abce419f2efe719e4bbb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controlType: 0
+--- !u!65 &161240843920634532
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7609976885421363463}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9496255, y: 2.5153594, z: 7.4800534}
+  m_Center: {x: 0.01010251, y: 1.6466906, z: -1.6632464}
 --- !u!1 &7711735021869724110
 GameObject:
   m_ObjectHideFlags: 0

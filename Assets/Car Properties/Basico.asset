@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   motorTorque: 320
   steeringAngle: 16
-  massOfCar: 430
+  massOfCar: 600
+  maxSpeedToEnteringTurn: 30

@@ -8,4 +8,6 @@ public class CarProperty : ScriptableObject
     public float motorTorque;
     public float steeringAngle;
     public int massOfCar;
+
+    public float maxSpeedToEnteringTurn;
 }
