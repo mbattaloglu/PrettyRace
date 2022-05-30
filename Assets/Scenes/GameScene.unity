@@ -158,7 +158,6 @@ RectTransform:
   - {fileID: 1006524988}
   - {fileID: 871601788}
   - {fileID: 177261877}
-  - {fileID: 1588771734}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -260,9 +259,6 @@ MonoBehaviour:
   playerCar: {fileID: 0}
   playerCarName: 
   AICars: {fileID: 0}
-  tracks:
-  - {fileID: 6326754009570318084, guid: 38bf3fab6cba59a4cb9de5a52d6c4e2f, type: 3}
-  activeTrack: {fileID: 0}
 --- !u!4 &87904727
 Transform:
   m_ObjectHideFlags: 0
@@ -816,6 +812,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 206118856}
   m_CullTransparentMesh: 1
+--- !u!1001 &236351714
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6326754009570318084, guid: 38bf3fab6cba59a4cb9de5a52d6c4e2f, type: 3}
+      propertyPath: m_Name
+      value: Track1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6667286695870188990, guid: 38bf3fab6cba59a4cb9de5a52d6c4e2f, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6667286695870188990, guid: 38bf3fab6cba59a4cb9de5a52d6c4e2f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6667286695870188990, guid: 38bf3fab6cba59a4cb9de5a52d6c4e2f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6667286695870188990, guid: 38bf3fab6cba59a4cb9de5a52d6c4e2f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6667286695870188990, guid: 38bf3fab6cba59a4cb9de5a52d6c4e2f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6667286695870188990, guid: 38bf3fab6cba59a4cb9de5a52d6c4e2f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6667286695870188990, guid: 38bf3fab6cba59a4cb9de5a52d6c4e2f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6667286695870188990, guid: 38bf3fab6cba59a4cb9de5a52d6c4e2f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6667286695870188990, guid: 38bf3fab6cba59a4cb9de5a52d6c4e2f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6667286695870188990, guid: 38bf3fab6cba59a4cb9de5a52d6c4e2f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6667286695870188990, guid: 38bf3fab6cba59a4cb9de5a52d6c4e2f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 38bf3fab6cba59a4cb9de5a52d6c4e2f, type: 3}
 --- !u!1 &236546224
 GameObject:
   m_ObjectHideFlags: 0
@@ -1314,7 +1367,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &453258309
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1723,6 +1776,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 542176884}
   m_CullTransparentMesh: 1
+--- !u!4 &660753208 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1384890951469551794, guid: 38bf3fab6cba59a4cb9de5a52d6c4e2f, type: 3}
+  m_PrefabInstance: {fileID: 236351714}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &685207722
 GameObject:
   m_ObjectHideFlags: 0
@@ -2466,9 +2524,9 @@ MonoBehaviour:
   - {fileID: 6661724954070560932, guid: 1ae0dc89b3ad73b4889170d891dadc9b, type: 3}
   - {fileID: 7609976885421363463, guid: 3a011e8ae3628014686bcf863bdeb4b0, type: 3}
   - {fileID: 1622240504039742351, guid: 521415eaf4de44548be56d554893aefc, type: 3}
-  player: {fileID: 0}
   AICars: {fileID: 810923735}
-  startingPoints: {fileID: 0}
+  startingPoints: {fileID: 660753208}
+  checkpoints: {fileID: 1599114860}
   createdCars: []
   powerUp: 0
   isGameStarted: 0
@@ -3929,12 +3987,17 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1588771731}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -450}
-  m_LocalScale: {x: 45, y: 45, z: 45}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 41313364}
-  m_RootOrder: 5
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1599114860 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1384890952482399730, guid: 38bf3fab6cba59a4cb9de5a52d6c4e2f, type: 3}
+  m_PrefabInstance: {fileID: 236351714}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1613800136
 GameObject:
   m_ObjectHideFlags: 0
@@ -4971,7 +5034,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Next Race
+  m_text: Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

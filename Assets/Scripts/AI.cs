@@ -191,6 +191,15 @@ public class AI : MonoBehaviour
             return;
         }
 
+        else if (Physics.Raycast(sensorStartPos, Quaternion.AngleAxis(90, transform.up) * transform.forward, out hit, sensorLength, carLayer))
+        {
+            Vector3 avoidanceVector = Vector3.Reflect((hit.point - transform.position).normalized, hit.transform.right);
+            newTargetVector = avoidanceVector;
+            avoidanceVector.Normalize();
+            Debug.DrawRay(sensorStartPos + transform.up, Quaternion.AngleAxis(sensorAngle, transform.up) * transform.forward * sensorLength, Color.red);
+            return;
+        }
+
         //Check front left
         sensorStartPos -= 2 * transform.right * frontSideSensorPosition;
         if (Physics.Raycast(sensorStartPos, transform.forward, out hit, sensorLength, carLayer))
@@ -204,7 +213,16 @@ public class AI : MonoBehaviour
 
 
         //Check front left with angle
-        else if (Physics.Raycast(sensorStartPos, Quaternion.AngleAxis(-sensorAngle, transform.up) * transform.forward, out hit, sensorLength, carLayer))
+        else if (Physics.Raycast(sensorStartPos, Quaternion.AngleAxis(-sensorAngle, transform.up) * transform.forward, out hit, 2, carLayer))
+        {
+            Vector3 avoidanceVector = Vector3.Reflect((hit.point - transform.position).normalized, hit.transform.right);
+            newTargetVector = avoidanceVector;
+            avoidanceVector.Normalize();
+            Debug.DrawRay(sensorStartPos + transform.up, Quaternion.AngleAxis(-sensorAngle, transform.up) * transform.forward * sensorLength, Color.red);
+            return;
+        }
+
+        else if (Physics.Raycast(sensorStartPos, Quaternion.AngleAxis(-90, transform.up) * transform.forward, out hit, 2, carLayer))
         {
             Vector3 avoidanceVector = Vector3.Reflect((hit.point - transform.position).normalized, hit.transform.right);
             newTargetVector = avoidanceVector;

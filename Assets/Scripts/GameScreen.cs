@@ -19,7 +19,7 @@ public class GameScreen: Screen
 
     private void Start()
     {
-        UpdateUIForPlayer = GameObject.FindObjectOfType<Player>();
+        UpdateUIForPlayer = GameManager.GetInstance().playerCar.GetComponent<Player>();  
     }
 
     public override void DoThingsAtClose()

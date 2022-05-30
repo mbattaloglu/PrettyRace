@@ -8,9 +8,9 @@ public class GameManager : MonoBehaviour
     public string playerCarName;
     public GameObject playerCar;
     public GameObject[] carPrefabs;
-    public Transform player;
     public Transform AICars;
     public Transform startingPoints;
+    public Transform checkpoints; 
 
     public GameObject[] createdCars;
 
@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
         powerUp = 1;
         isGameStarted = false;
         isGamePaused = false;
+
 
         CreateAICars();
     }

@@ -51,7 +51,7 @@ public class Player : MonoBehaviour, ISubejct
     {
         //LINQ
         observers = FindObjectsOfType<MonoBehaviour>().OfType<IObserver>().ToList();
-        checkpointsParent = TournamentHandler.GetInstance().activeTrack.transform.GetChild(2);
+        checkpointsParent = GameManager.GetInstance().checkpoints;
         checkpointCount = checkpointsParent.childCount;
         checkpointLayer = LayerMask.NameToLayer("Checkpoint");
         car = GetComponent<Car>();
@@ -73,10 +73,10 @@ public class Player : MonoBehaviour, ISubejct
 
     private void StartLap()
     {
-        if(CurrentLap != 4)CurrentLap++;
+        if(CurrentLap != 2)CurrentLap++;
         lastCheckpointPassed = 1;
         lapTimerTimeStamp = Time.time;
-        if (CurrentLap == 4)
+        if (CurrentLap == 2)
         {
             Debug.Log(gameObject.name + "Finished Laps");
             NotifyObservers(NotificationType.LapsFinished, this);

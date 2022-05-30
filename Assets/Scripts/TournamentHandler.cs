@@ -15,11 +15,6 @@ public class TournamentHandler : MonoBehaviour
     
     private Transform startingPoints;
 
-    public GameObject[] tracks;
-    [HideInInspector]
-    public GameObject activeTrack;
-
-    private int trackIndex;
 
     private TournamentHandler()
     {
@@ -35,20 +30,16 @@ public class TournamentHandler : MonoBehaviour
     }
     private void Start()
     {
-        trackIndex = 0; 
+        startingPoints = GameManager.GetInstance().startingPoints;
     }
 
     public void CreateRaceEvent()
     {
-        activeTrack = Instantiate(tracks[trackIndex], tracks[trackIndex].transform.position, tracks[trackIndex].transform.rotation);
-        activeTrack.name = "ActiveTrack";
-        startingPoints = activeTrack.transform.GetChild(4);
-
         AICars = GameObject.Find("AICars").transform;
 
         for (int i = 0; i < AICars.childCount; i++)
         {
-            AICars.GetChild(i).GetComponent<Player>().checkpointsParent = activeTrack.transform.GetChild(2);
+            AICars.GetChild(i).GetComponent<Player>().checkpointsParent = GameManager.GetInstance().checkpoints;
         }
 
         GameManager.GetInstance().CreatePlayerCar();
