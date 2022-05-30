@@ -16,9 +16,9 @@ public class AI : MonoBehaviour
     public float frontSideSensorPosition = 1.5f;
     public float sensorAngle = 30;
 
+
     private float maxSpeed = 30f;
     private int carLayer;
-
 
     private Car car;
 
@@ -35,6 +35,11 @@ public class AI : MonoBehaviour
         carLayer = 1 << LayerMask.NameToLayer("Car");
         car = GetComponent<Car>();
         allWaypoints = FindObjectsOfType<WaypointNode>();
+    }
+
+    private void Start()
+    {
+        Initialize();
     }
 
     private void FixedUpdate()
@@ -216,11 +221,11 @@ public class AI : MonoBehaviour
     {
         //TODO: Complete this method.
         currentWaypoint = null;
-        transform.position = startingPosition.position;
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         //TODO: Check rigidbody.Sleep() and rigidbody.WakeUp().
         GetComponent<Rigidbody>().Sleep();
         GetComponent<Rigidbody>().WakeUp();
+        //transform.position = startingPosition.position;
     }
 }

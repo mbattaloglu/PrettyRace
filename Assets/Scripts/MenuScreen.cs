@@ -9,13 +9,18 @@ public class MenuScreen : Screen
 
     public override void DoThingsAtShow()
     {
-        Debug.Log("Menu Screen Is On");
+        for (int i = 0; i < screenHandler.gameManager.AICars.childCount; i++)
+        {
+            Destroy(screenHandler.gameManager.AICars.GetChild(i).gameObject);
+        }
+        Camera.main.transform.parent = null;
+        Destroy(GameObject.Find("Player"));
     }
 
-    public void PlayOnClick()
+    public void GoCreateGameMenuOnClick()
     {
         CloseScreen();
-        screenManager.gameScreen.ShowScreen();
+        screenHandler.createGameScreen.ShowScreen();
 
     }
 }

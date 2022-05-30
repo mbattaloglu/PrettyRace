@@ -1,15 +1,14 @@
 using UnityEngine;
 
 public abstract class Screen : MonoBehaviour 
-{
-    
-    public ScreenManager screenManager { get; private set; }
+{   
+    public ScreenHandler screenHandler { get; private set; }
     public abstract void DoThingsAtShow();
     public abstract void DoThingsAtClose();
 
     private void Awake()
     {
-        screenManager = FindObjectOfType<ScreenManager>();
+        screenHandler = FindObjectOfType<ScreenHandler>();
     }
 
     public void ShowScreen()

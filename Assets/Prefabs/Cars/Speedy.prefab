@@ -310,7 +310,6 @@ GameObject:
   - component: {fileID: 2293152588401836237}
   - component: {fileID: 2211434486398275224}
   - component: {fileID: 7032255682560395402}
-  - component: {fileID: 3806289372551797678}
   - component: {fileID: 3535666156630498707}
   - component: {fileID: 4559269183010701546}
   - component: {fileID: 8710318605174362299}
@@ -330,7 +329,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8554560613183409047}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.051130667}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 1427641688728338209}
@@ -403,18 +402,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3806289372551797678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8554560613183409047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2c1b61ab36abce419f2efe719e4bbb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3535666156630498707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,6 +418,7 @@ MonoBehaviour:
   centerOfMass: {fileID: 5296662528317323925}
   motorTorque: 0
   steeringAngle: 0
+  maxSpeedToEnteringTurn: 0
   speed: 0
 --- !u!65 &4559269183010701546
 BoxCollider:
@@ -440,7 +428,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8554560613183409047}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.1765656, y: 0.87318444, z: 4.099934}
@@ -453,7 +441,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8554560613183409047}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.599284, y: 0.5631907, z: 1.8383914}
@@ -466,7 +454,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8554560613183409047}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 0.26728773, z: 0.809777}

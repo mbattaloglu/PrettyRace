@@ -1,23 +1,32 @@
-using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TournamentHandler : MonoBehaviour, IObserver
+public class TournamentHandler : MonoBehaviour
 {
     private static TournamentHandler instance;
 
-    private readonly int[] points = new int[] { 6, 5, 4, 3, 2, 1 };
-    private const int BEST_LAP_POINT = 1;
-    public List<Player> players;
+    public GameObject playerCar;
 
-    private List<Player> result;
+    [HideInInspector]
+    public string playerCarName;
 
-    private Player bestLappedPlayer;
-    private float bestLapTime;
+    public Transform AICars;
+    
+    private Transform startingPoints;
+
+    public GameObject[] tracks;
+    [HideInInspector]
+    public GameObject activeTrack;
+
+    private int trackIndex;
 
     private TournamentHandler()
     {
-        if (instance == null) instance = this;
+        if (instance == null)
+        {
+            instance = this;
+        }
     }
 
     public static TournamentHandler GetInstance()
@@ -26,46 +35,27 @@ public class TournamentHandler : MonoBehaviour, IObserver
     }
     private void Start()
     {
-        //From first to sixth
-        bestLapTime = Mathf.Infinity;
-
-        players = GameObject.FindObjectsOfType<Player>().ToList();
-        result = new List<Player>();
+        trackIndex = 0; 
     }
 
-    public void OnValueChanged(NotificationType type, Player player)
+    public void CreateRaceEvent()
     {
-        switch (type)
-        {
-            case NotificationType.BestLap:
-                if (player.BestLapTime < bestLapTime)
-                {
-                    bestLapTime = player.BestLapTime;
-                    bestLappedPlayer = player;
-                }
-                break;
-            case NotificationType.LapsFinished:
-                result.Add(player);
-                if (result.Count == players.Count)
-                {
-                    FinishRace();
-                }
-                break;
-        }
-    }
+        activeTrack = Instantiate(tracks[trackIndex], tracks[trackIndex].transform.position, tracks[trackIndex].transform.rotation);
+        activeTrack.name = "ActiveTrack";
+        startingPoints = activeTrack.transform.GetChild(4);
 
-    private void FinishRace()
-    {
-        //Assign Points
-        for (int i = 0; i < (points.Length >= result.Count ? result.Count : points.Length); i++)
-        {
-            result[i].point += points[i];
-        }
-        bestLappedPlayer.point += BEST_LAP_POINT;
+        AICars = GameObject.Find("AICars").transform;
 
-        foreach (Player player in result)
+        for (int i = 0; i < AICars.childCount; i++)
         {
-            Debug.Log("Car Name:" + player.transform.name + " Point:" + player.point);
+            AICars.GetChild(i).GetComponent<Player>().checkpointsParent = activeTrack.transform.GetChild(2);
         }
+
+        GameManager.GetInstance().CreatePlayerCar();
+        playerCar = GameObject.Find("Player");
+
+        playerCar.transform.position = startingPoints.GetChild(AICars.childCount).position;
+        playerCar.SetActive(true);
+
     }
 }

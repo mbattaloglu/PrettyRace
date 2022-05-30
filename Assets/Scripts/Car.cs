@@ -1,4 +1,3 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +19,7 @@ public class Car : MonoBehaviour
 
     public float Steer { get; set; }
     public float Throttle { get; set; }
+    public int ID { get; set; }
 
     private void Awake()
     {

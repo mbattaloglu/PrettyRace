@@ -5,25 +5,28 @@ public class PauseScreen : Screen
     public override void DoThingsAtClose()
     {
         Debug.Log("Pause Screen is Off");
-        screenManager.gameManager.isGamePaused = false;
+        screenHandler.gameManager.isGamePaused = false;
+        Time.timeScale = 1f;
     }
 
     public override void DoThingsAtShow()
     {
         Debug.Log("Pause Screen is On");
-        screenManager.gameManager.isGamePaused = true;
+        screenHandler.gameManager.isGamePaused = true;
+        Time.timeScale = 0f;
     }
     
     public void GoMenuOnClick()
     {
         CloseScreen();
-        screenManager.menuScreen.ShowScreen();
+        screenHandler.gameManager.gameObject.SetActive(false);
+        screenHandler.menuScreen.ShowScreen();
     }
 
     public void ContinueOnClick()
     {
         CloseScreen();
-        screenManager.gameScreen.ShowScreen();
+        screenHandler.gameScreen.ShowScreen();
     }
 
 

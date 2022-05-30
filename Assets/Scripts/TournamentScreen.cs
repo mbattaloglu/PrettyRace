@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -19,19 +20,27 @@ public class TournamentScreen : Screen
     public void GoMenuOnClick()
     {
         CloseScreen();
-        screenManager.menuScreen.ShowScreen();
+        screenHandler.menuScreen.ShowScreen();
     }
 
 
     private void PrintLeaderboard()
     {
-        List<Player> players = TournamentHandler.GetInstance().players;
+        List<Player> players = PointHandler.GetInstance().players;
+        Dictionary<Player, int> points = new Dictionary<Player, int>();
+        for (int i = 0; i < players.Count; i++)
+        {
+            points.Add(players[i], players[i].totalPoint);
+        }
+
+        //LINQ
+        Dictionary<Player, int> sortedPoints = (Dictionary<Player, int>)(from point in points orderby point.Value ascending select point); 
 
         string leaderboard = "";
 
-        foreach (Player player in players)
+        foreach (KeyValuePair<Player, int> player in sortedPoints)
         {
-            string point = "\n" + player.transform.name + " : " + player.point;
+            string point = "\n" + player.Key.transform.name + " : " + player.Value;
             leaderboard += point;
         }
 

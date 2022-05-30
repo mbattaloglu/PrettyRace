@@ -19,7 +19,7 @@ public class GameScreen: Screen
 
     private void Start()
     {
-        StartCoroutine(StartGame());
+        UpdateUIForPlayer = GameObject.FindObjectOfType<Player>();
     }
 
     public override void DoThingsAtClose()
@@ -30,27 +30,27 @@ public class GameScreen: Screen
     public override void DoThingsAtShow()
     {
         Debug.Log("Game Screen Is On");
+        StartCoroutine(screenHandler.gameScreen.StartGame());
         UpdateTimingTable();
     }
 
     public void PauseOnClick()
     {
         CloseScreen();
-        screenManager.pauseScreen.ShowScreen();
+        screenHandler.pauseScreen.ShowScreen();
     }
 
-
-    
     private void Update()
     {
-        if (!screenManager.gameManager.isGameStarted) return;
-        if (screenManager.gameManager.isGamePaused) return;
+        if (!screenHandler.gameManager.isGameStarted) return;
+        if (screenHandler.gameManager.isGamePaused) return;
         UpdateTimingTable();   
     }
 
-    IEnumerator StartGame()
+    public IEnumerator StartGame()
     {
         TMPCountdownText.text = "" + 3;
+        TMPCountdownText.gameObject.SetActive(true);
         yield return new WaitForSeconds(0.93f);
         TMPCountdownText.gameObject.SetActive(false);
 
@@ -70,7 +70,7 @@ public class GameScreen: Screen
         TMPCountdownText.gameObject.SetActive(false);
 
         yield return new WaitForSeconds(0.07f);
-        screenManager.gameManager.isGameStarted = true;
+        screenHandler.gameManager.isGameStarted = true;
     }
 
     private void UpdateTimingTable()

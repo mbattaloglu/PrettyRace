@@ -15,11 +15,12 @@ public class Player : MonoBehaviour, ISubejct
     private float lapTimerTimeStamp;
     private int lastCheckpointPassed = 0;
 
-    private Transform checkpointsParent;
+    public Transform checkpointsParent;
     private int checkpointCount;
     private int checkpointLayer;
     private Car car;
-    public int point;
+    public int totalPoint;
+    public int lastPointsEarned;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -46,11 +47,11 @@ public class Player : MonoBehaviour, ISubejct
         }
     }
 
-    private void Awake()
+    private void Start()
     {
         //LINQ
         observers = FindObjectsOfType<MonoBehaviour>().OfType<IObserver>().ToList();
-        checkpointsParent = GameObject.Find("Checkpoints").transform;
+        checkpointsParent = TournamentHandler.GetInstance().activeTrack.transform.GetChild(2);
         checkpointCount = checkpointsParent.childCount;
         checkpointLayer = LayerMask.NameToLayer("Checkpoint");
         car = GetComponent<Car>();
@@ -72,12 +73,12 @@ public class Player : MonoBehaviour, ISubejct
 
     private void StartLap()
     {
-        CurrentLap++;
+        if(CurrentLap != 4)CurrentLap++;
         lastCheckpointPassed = 1;
         lapTimerTimeStamp = Time.time;
-        if (CurrentLap == 3)
+        if (CurrentLap == 4)
         {
-            CurrentLap = 0;
+            Debug.Log(gameObject.name + "Finished Laps");
             NotifyObservers(NotificationType.LapsFinished, this);
         }
     }
